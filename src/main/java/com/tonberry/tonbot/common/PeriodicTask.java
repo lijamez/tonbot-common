@@ -8,6 +8,9 @@ import sx.blah.discord.api.IDiscordClient;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * A task that is run at a particular frequency.
+ */
 public abstract class PeriodicTask {
 
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
