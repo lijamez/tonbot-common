@@ -1,22 +1,42 @@
 package com.tonberry.tonbot.common;
 
+import java.util.Set;
+
 /**
  * Tonbot uses classes of this type to instantiate {@link PluginResources}s.
- * The Tonbot plugin loader will create an instance of this class using a zero-parameter constructor.
+ * The Tonbot plugin loader will create an instance of this class using a 1-parameter constructor which accepts a
+ * {@link TonbotPluginArgs}.
  */
 public interface TonbotPlugin {
 
     /**
-     * Accepta a set of arguments from Tonbot. Tonbot will supply these arguments before build() is called.
-     * This method should also be used initialize plugin-specific configurations, such as reading from a config file.
-     *
-     * @param args {@link TonbotPluginArgs}. Non-null.
+     * Gets the human friendly name of the plugin.
+     * @return The human friendly name of the plugin. Non-null.
      */
-    void initialize(TonbotPluginArgs args);
+    String getFriendlyName();
 
     /**
-     * Called by the Tonbot plugin loader to create a new {@link PluginResources}.
-     * @return {@link PluginResources}. Null values will be ignored by the plugin loader.
+     * Gets a short description of what this plugin does. This resulting sentence should be grammatically correct when
+     * preceded by the words, "This plugin can..."
+     * @return The action description. Non-null.
      */
-    PluginResources build();
+    String getActionDescription();
+
+    /**
+     * Whether if this plugin should be hidden from the "help" menu.
+     * @return True if this plugin should be hidden from the help menu. False otherwise.
+     */
+    boolean isHidden();
+
+    /**
+     * Gets the set of {@link Activity}.
+     * @return The set of {@link Activity}. Non-null.
+     */
+    Set<Activity> getActivities();
+
+    /**
+     * Gets the set of {@link PeriodicTask}.
+     * @return The set of {@link Activity}. Non-null.
+     */
+    Set<PeriodicTask> getPeriodicTasks();
 }
