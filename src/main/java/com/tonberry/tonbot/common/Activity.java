@@ -8,22 +8,10 @@ import java.util.Optional;
 public interface Activity {
 
     /**
-     * Gets the route.
-     * @return The route. Non-null, non-empty.
+     * Gets the {@link ActivityDescriptor}.
+     * @return {@link ActivityDescriptor}. Non-null.
      */
-    List<String> getRoute();
-
-    /**
-     * Gets a description of this activity.
-     * @return A description of what this activity does. Non-null.
-     */
-    String getDescription();
-
-    /**
-     * Gets a usage description.
-     * @return A description on how to use this activity. Non-null. May be empty.
-     */
-    Optional<String> getUsage();
+    ActivityDescriptor getActivityDescriptor();
 
     void enact(MessageReceivedEvent event, String args);
 }
