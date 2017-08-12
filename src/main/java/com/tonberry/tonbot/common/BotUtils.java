@@ -10,6 +10,8 @@ import sx.blah.discord.util.RequestBuffer;
 public class BotUtils {
     private static final Logger LOG = LoggerFactory.getLogger(BotUtils.class);
 
+    private BotUtils() { }
+
     public static void sendMessage(IChannel channel, String message) {
         RequestBuffer.request(() -> {
             try {
