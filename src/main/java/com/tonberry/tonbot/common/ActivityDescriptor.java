@@ -1,6 +1,7 @@
 package com.tonberry.tonbot.common;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableList;
 import lombok.Builder;
 import lombok.Data;
 
@@ -31,8 +32,8 @@ class ActivityDescriptor {
                         !route.contains(" "), "Route components must not include spaces."));
         this.route = route;
 
-        this.parameters = Preconditions.checkNotNull(parameters, "parameters must be non-null.");
-        this.description = Preconditions.checkNotNull(description, "description must be non-null.");
+        this.parameters = parameters != null ? parameters : ImmutableList.of();
+        this.description = description != null ? description : "";
         this.usageDescription = usageDescription;
     }
 
