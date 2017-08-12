@@ -18,20 +18,20 @@ public abstract class TonbotPlugin {
      * Gets the human friendly name of the plugin.
      * @return The human friendly name of the plugin. Non-null.
      */
-    abstract String getFriendlyName();
+    public abstract String getFriendlyName();
 
     /**
      * Gets a short description of what this plugin does. This resulting sentence should be grammatically correct when
      * preceded by the words, "This plugin can..."
      * @return The action description. Non-null.
      */
-    abstract String getActionDescription();
+    public abstract String getActionDescription();
 
     /**
      * Whether if this plugin should be hidden from the "help" menu.
      * @return True if this plugin should be hidden from the help menu. False otherwise.
      */
-    boolean isHidden() {
+    public boolean isHidden() {
         return false;
     }
 
@@ -39,7 +39,7 @@ public abstract class TonbotPlugin {
      * Gets the set of {@link Activity}.
      * @return The set of {@link Activity}. Non-null.
      */
-    Set<Activity> getActivities() {
+    public Set<Activity> getActivities() {
         return ImmutableSet.of();
     }
 
@@ -47,7 +47,7 @@ public abstract class TonbotPlugin {
      * Gets the set of {@link PeriodicTask}.
      * @return The set of {@link Activity}. Non-null.
      */
-    Set<PeriodicTask> getPeriodicTasks() {
+    public Set<PeriodicTask> getPeriodicTasks() {
         return ImmutableSet.of();
     }
 }
