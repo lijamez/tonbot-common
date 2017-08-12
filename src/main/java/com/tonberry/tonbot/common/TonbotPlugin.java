@@ -50,4 +50,14 @@ public abstract class TonbotPlugin {
     public Set<PeriodicTask> getPeriodicTasks() {
         return ImmutableSet.of();
     }
+
+    /**
+     * Gets the set of Discord4J event listeners. These handlers will be supplied directly to Discord4J's
+     * registerListener method. Typically, one would only supply a raw event listener if their use case doesn't fit
+     * into any of the existing archetypes such as the routed activity.
+     * @return Event listener objects for Discord4J. Non-null.
+     */
+    public Set<Object> getRawEventListeners() {
+        return ImmutableSet.of();
+    }
 }
