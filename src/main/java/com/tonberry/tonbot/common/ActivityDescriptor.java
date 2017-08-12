@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Data
 @Builder
-class ActivityDescriptor {
+public class ActivityDescriptor {
 
     private final List<String> route;
 
