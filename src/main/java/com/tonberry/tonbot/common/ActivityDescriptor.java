@@ -30,9 +30,9 @@ public class ActivityDescriptor {
         route.stream()
                 .forEach(routeComponent -> Preconditions.checkArgument(
                         !route.contains(" "), "Route components must not include spaces."));
-        this.route = route;
+        this.route = ImmutableList.copyOf(route);
 
-        this.parameters = parameters != null ? parameters : ImmutableList.of();
+        this.parameters = parameters != null ? ImmutableList.copyOf(parameters) : ImmutableList.of();
         this.description = description != null ? description : "";
         this.usageDescription = usageDescription;
     }
