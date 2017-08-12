@@ -10,6 +10,10 @@ import java.util.Set;
  */
 public abstract class TonbotPlugin {
 
+    public TonbotPlugin(TonbotPluginArgs pluginArgs) {
+
+    }
+
     /**
      * Gets the human friendly name of the plugin.
      * @return The human friendly name of the plugin. Non-null.
