@@ -11,7 +11,7 @@ public interface Activity {
      * Gets the {@link ActivityDescriptor}.
      * @return {@link ActivityDescriptor}. Non-null.
      */
-    ActivityDescriptor getActivityDescriptor();
+    ActivityDescriptor getDescriptor();
 
     void enact(MessageReceivedEvent event, String args);
 }
