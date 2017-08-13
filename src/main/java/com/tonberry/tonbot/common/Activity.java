@@ -10,5 +10,11 @@ public interface Activity {
      */
     ActivityDescriptor getDescriptor();
 
+    /**
+     * Runs the activity.
+     * @param event The {@link MessageReceivedEvent}. Non-null.
+     * @param args The arguments. Non-null.
+     * @throws TonbotBusinessException If a user error occurred.
+     */
     void enact(MessageReceivedEvent event, String args);
 }
