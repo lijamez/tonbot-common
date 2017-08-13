@@ -2,6 +2,7 @@ package com.tonberry.tonbot.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import sx.blah.discord.api.internal.json.objects.EmbedObject;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.util.DiscordException;

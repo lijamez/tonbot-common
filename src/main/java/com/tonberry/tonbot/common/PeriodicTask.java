@@ -1,12 +1,14 @@
 package com.tonberry.tonbot.common;
 
-import com.google.common.base.Preconditions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import sx.blah.discord.api.IDiscordClient;
-
 import java.util.Timer;
 import java.util.TimerTask;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Preconditions;
+
+import sx.blah.discord.api.IDiscordClient;
 
 /**
  * A task that is run at a particular frequency.

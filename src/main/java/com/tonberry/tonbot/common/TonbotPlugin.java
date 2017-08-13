@@ -1,8 +1,8 @@
 package com.tonberry.tonbot.common;
 
-import com.google.common.collect.ImmutableSet;
-
 import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
 
 /**
  * The Tonbot plugin loader will create an instance of this class using a 1-parameter constructor which accepts a

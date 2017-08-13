@@ -1,12 +1,13 @@
 package com.tonberry.tonbot.common;
 
+import java.io.File;
+import java.util.Optional;
+
 import com.google.common.base.Preconditions;
+
 import lombok.Builder;
 import lombok.Data;
 import sx.blah.discord.api.IDiscordClient;
-
-import java.io.File;
-import java.util.Optional;
 
 /**
  * A standard set of data passed to every Tonbot PluginResources.
