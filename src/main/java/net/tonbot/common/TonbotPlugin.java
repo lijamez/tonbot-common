@@ -1,4 +1,4 @@
-package com.tonberry.tonbot.common;
+package net.tonbot.common;
 
 import java.util.Set;
 

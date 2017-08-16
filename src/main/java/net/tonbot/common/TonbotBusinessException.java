@@ -1,4 +1,4 @@
-package com.tonberry.tonbot.common;
+package net.tonbot.common;
 
 /**
  * A business exception indicates an error that is caused by the user.

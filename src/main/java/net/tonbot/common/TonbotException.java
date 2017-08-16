@@ -1,4 +1,4 @@
-package com.tonberry.tonbot.common;
+package net.tonbot.common;
 
 /**
  * A generic Tonbot exception.

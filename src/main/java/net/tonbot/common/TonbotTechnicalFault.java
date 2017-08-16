@@ -1,4 +1,4 @@
-package com.tonberry.tonbot.common;
+package net.tonbot.common;
 
 /**
  * A technical fault is indicative of internal errors. Exceptions of this type should not be surfaced to users.
