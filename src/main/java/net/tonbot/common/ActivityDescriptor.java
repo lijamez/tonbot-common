@@ -13,32 +13,32 @@ import lombok.Data;
 @Builder
 public class ActivityDescriptor {
 
-    private final List<String> route;
+	private final List<String> route;
 
-    private final List<String> parameters;
+	private final List<String> parameters;
 
-    private final String description;
+	private final String description;
 
-    private final String usageDescription;
+	private final String usageDescription;
 
-    private ActivityDescriptor(
-            List<String> route,
-            List<String> parameters,
-            String description,
-            String usageDescription) {
-        Preconditions.checkNotNull(route, "route must be non-null.");
-        Preconditions.checkArgument(!route.isEmpty(), "route must be non-empty.");
-        route.stream()
-                .forEach(routeComponent -> Preconditions.checkArgument(
-                        !route.contains(" "), "Route components must not include spaces."));
-        this.route = ImmutableList.copyOf(route);
+	private ActivityDescriptor(
+			List<String> route,
+			List<String> parameters,
+			String description,
+			String usageDescription) {
+		Preconditions.checkNotNull(route, "route must be non-null.");
+		Preconditions.checkArgument(!route.isEmpty(), "route must be non-empty.");
+		route.stream()
+				.forEach(routeComponent -> Preconditions.checkArgument(
+						!route.contains(" "), "Route components must not include spaces."));
+		this.route = ImmutableList.copyOf(route);
 
-        this.parameters = parameters != null ? ImmutableList.copyOf(parameters) : ImmutableList.of();
-        this.description = description != null ? description : "";
-        this.usageDescription = usageDescription;
-    }
+		this.parameters = parameters != null ? ImmutableList.copyOf(parameters) : ImmutableList.of();
+		this.description = description != null ? description : "";
+		this.usageDescription = usageDescription;
+	}
 
-    public Optional<String> getUsageDescription() {
-        return Optional.ofNullable(usageDescription);
-    }
+	public Optional<String> getUsageDescription() {
+		return Optional.ofNullable(usageDescription);
+	}
 }

@@ -15,40 +15,40 @@ import sx.blah.discord.api.IDiscordClient;
  */
 public abstract class PeriodicTask {
 
-    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-    private final Timer timer;
-    private final long periodMs;
-    private final IDiscordClient discordClient;
+	private final Timer timer;
+	private final long periodMs;
+	private final IDiscordClient discordClient;
 
-    public PeriodicTask(IDiscordClient discordClient, long periodMs) {
-        this.timer = new Timer();
+	public PeriodicTask(IDiscordClient discordClient, long periodMs) {
+		this.timer = new Timer();
 
-        this.discordClient = Preconditions.checkNotNull(discordClient, "discordClient must be non-null.");
+		this.discordClient = Preconditions.checkNotNull(discordClient, "discordClient must be non-null.");
 
-        Preconditions.checkArgument(periodMs > 0, "periodMs must be greater than 0.");
-        this.periodMs = periodMs;
-    }
+		Preconditions.checkArgument(periodMs > 0, "periodMs must be greater than 0.");
+		this.periodMs = periodMs;
+	}
 
-    public void start() {
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                try {
-                    performTask();
-                } catch (Exception e) {
-                    LOG.error("Unable to emit diagnostics.", e);
-                }
+	public void start() {
+		TimerTask task = new TimerTask() {
+			@Override
+			public void run() {
+				try {
+					performTask();
+				} catch (Exception e) {
+					LOG.error("Periodic task execution has failed.", e);
+				}
 
-            }
-        };
+			}
+		};
 
-        timer.scheduleAtFixedRate(task, 0, periodMs);
-    }
+		timer.scheduleAtFixedRate(task, 0, periodMs);
+	}
 
-    protected IDiscordClient getDiscordClient() {
-        return discordClient;
-    }
+	protected IDiscordClient getDiscordClient() {
+		return discordClient;
+	}
 
-    protected abstract void performTask();
+	protected abstract void performTask();
 }

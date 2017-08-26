@@ -7,11 +7,11 @@ package net.tonbot.common;
 @SuppressWarnings("serial")
 public class TonbotBusinessException extends TonbotException {
 
-    public TonbotBusinessException(String message, Exception e) {
-        super(message, e);
-    }
+	public TonbotBusinessException(String message, Exception e) {
+		super(message, e);
+	}
 
-    public TonbotBusinessException(String message) {
-        super(message);
-    }
+	public TonbotBusinessException(String message) {
+		super(message);
+	}
 }

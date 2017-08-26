@@ -4,17 +4,22 @@ import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedE
 
 public interface Activity {
 
-    /**
-     * Gets the {@link ActivityDescriptor}.
-     * @return {@link ActivityDescriptor}. Non-null.
-     */
-    ActivityDescriptor getDescriptor();
+	/**
+	 * Gets the {@link ActivityDescriptor}.
+	 * 
+	 * @return {@link ActivityDescriptor}. Non-null.
+	 */
+	ActivityDescriptor getDescriptor();
 
-    /**
-     * Runs the activity.
-     * @param event The {@link MessageReceivedEvent}. Non-null.
-     * @param args The arguments. Non-null.
-     * @throws TonbotBusinessException If a user error occurred.
-     */
-    void enact(MessageReceivedEvent event, String args);
+	/**
+	 * Runs the activity.
+	 * 
+	 * @param event
+	 *            The {@link MessageReceivedEvent}. Non-null.
+	 * @param args
+	 *            The arguments. Non-null.
+	 * @throws TonbotBusinessException
+	 *             If a user error occurred.
+	 */
+	void enact(MessageReceivedEvent event, String args);
 }

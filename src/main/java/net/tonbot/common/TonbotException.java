@@ -6,11 +6,11 @@ package net.tonbot.common;
 @SuppressWarnings("serial")
 public abstract class TonbotException extends RuntimeException {
 
-    public TonbotException(String message, Exception causedBy) {
-        super(message, causedBy);
-    }
+	public TonbotException(String message, Exception causedBy) {
+		super(message, causedBy);
+	}
 
-    public TonbotException(String message) {
-        super(message);
-    }
+	public TonbotException(String message) {
+		super(message);
+	}
 }
