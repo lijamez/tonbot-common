@@ -9,6 +9,13 @@ import com.google.common.collect.ImmutableList;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * An activity descriptor.<br/>
+ * <br/>
+ * description: A <i>brief</i> description of what the command does.<br/>
+ * usageDescription: An optional <i>comprehensive</i> description of what the
+ * command does.
+ */
 @Data
 @Builder
 public class ActivityDescriptor {
