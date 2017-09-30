@@ -69,12 +69,12 @@ public abstract class TonbotPlugin {
 	public Set<Object> getRawEventListeners() {
 		return ImmutableSet.of();
 	}
-	
+
 	/**
-	 * This method will be called when the server is shutting down. 
-	 * Plugins are advised to override and perform cleanup tasks, if necessary.
+	 * This method will be called when the server is shutting down. Plugins are
+	 * advised to override and perform cleanup tasks, if necessary.
 	 */
 	public void destroy() {
-		
+
 	}
 }

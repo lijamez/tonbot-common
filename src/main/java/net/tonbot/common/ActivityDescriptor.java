@@ -14,13 +14,15 @@ import lombok.Data;
  * <br/>
  * description: A <i>brief</i> description of what the command does.<br/>
  * usageDescription: An optional <i>comprehensive</i> description of what the
- * command does.
+ * command does and how to use it.
  */
 @Data
 @Builder
 public class ActivityDescriptor {
 
 	private final List<String> route;
+
+	private final List<List<String>> routeAliases;
 
 	private final List<String> parameters;
 
@@ -30,15 +32,25 @@ public class ActivityDescriptor {
 
 	private ActivityDescriptor(
 			List<String> route,
+			List<List<String>> routeAliases,
 			List<String> parameters,
 			String description,
 			String usageDescription) {
 		Preconditions.checkNotNull(route, "route must be non-null.");
 		Preconditions.checkArgument(!route.isEmpty(), "route must be non-empty.");
+
 		route.stream()
 				.forEach(routeComponent -> Preconditions.checkArgument(
 						!route.contains(" "), "Route components must not include spaces."));
 		this.route = ImmutableList.copyOf(route);
+
+		if (routeAliases != null) {
+			routeAliases.forEach(
+					alias -> Preconditions.checkArgument(!route.isEmpty(), "each route alias must not be empty."));
+			this.routeAliases = ImmutableList.copyOf(routeAliases);
+		} else {
+			this.routeAliases = ImmutableList.of();
+		}
 
 		this.parameters = parameters != null ? ImmutableList.copyOf(parameters) : ImmutableList.of();
 		this.description = description != null ? description : "";
