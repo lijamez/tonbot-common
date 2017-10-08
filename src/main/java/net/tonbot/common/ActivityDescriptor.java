@@ -12,13 +12,27 @@ import lombok.Data;
 
 /**
  * An activity descriptor.<br/>
- * <br/>
- * description: A <i>brief</i> description of what the command does.<br/>
+ * 
+ * <p>
+ * route: The canonical route for this activity. Required. Must not be blank.
+ * </p>
+ * <p>
+ * description: A optional <i>brief</i> description of what the command does.
+ * </p>
+ * <p>
  * usageDescription: An optional <i>comprehensive</i> description of what the
- * command does and how to use it.
+ * command does and how to use it. When this description is displayed, any
+ * supported placeholders will be replaced with real values. Placeholders are to
+ * be formatted like so: <code>${placeholderName}</code><br/>
+ * Supported placeholders:
+ * <ul>
+ * <li>absoluteReferencedRoute: The full route, including Tonbot prefix, that
+ * was used to reference this activity. This could be the canonical route of the
+ * activity or one of its aliases.</li>
+ * </ul>
+ * </p>
  */
 @Data
-
 public class ActivityDescriptor {
 
 	private final Route route;
