@@ -2,6 +2,7 @@ package net.tonbot.common;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -17,12 +18,12 @@ import lombok.Data;
  * command does and how to use it.
  */
 @Data
-@Builder
+
 public class ActivityDescriptor {
 
-	private final List<String> route;
+	private final Route route;
 
-	private final List<List<String>> routeAliases;
+	private final List<Route> routeAliases;
 
 	private final List<String> parameters;
 
@@ -30,24 +31,22 @@ public class ActivityDescriptor {
 
 	private final String usageDescription;
 
+	@Builder
 	private ActivityDescriptor(
-			List<String> route,
-			List<List<String>> routeAliases,
+			String route,
+			List<String> routeAliases,
 			List<String> parameters,
 			String description,
 			String usageDescription) {
 		Preconditions.checkNotNull(route, "route must be non-null.");
 		Preconditions.checkArgument(!route.isEmpty(), "route must be non-empty.");
 
-		route.stream()
-				.forEach(routeComponent -> Preconditions.checkArgument(
-						!route.contains(" "), "Route components must not include spaces."));
-		this.route = ImmutableList.copyOf(route);
+		this.route = Route.from(route);
 
 		if (routeAliases != null) {
-			routeAliases.forEach(
-					alias -> Preconditions.checkArgument(!route.isEmpty(), "each route alias must not be empty."));
-			this.routeAliases = ImmutableList.copyOf(routeAliases);
+			this.routeAliases = routeAliases.stream()
+					.map(aliasStr -> Route.from(aliasStr))
+					.collect(Collectors.toList());
 		} else {
 			this.routeAliases = ImmutableList.of();
 		}
