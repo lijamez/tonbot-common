@@ -3,6 +3,7 @@ package net.tonbot.common;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -30,8 +31,10 @@ public class Route {
 		routePath.forEach(element -> Preconditions.checkArgument(
 				!StringUtils.isBlank(element), "routePath must not contain null or empty elements."));
 
-		this.path = ImmutableList.copyOf(routePath);
-		this.routeAsString = StringUtils.join(routePath, " ");
+		this.path = ImmutableList.copyOf(routePath.stream()
+				.map(element -> element.trim())
+				.collect(Collectors.toList()));
+		this.routeAsString = StringUtils.join(this.path, " ");
 	}
 
 	/**
@@ -63,7 +66,7 @@ public class Route {
 	 * 
 	 * @param routePath
 	 *            The route path. Must be non-null and must not contain null or
-	 *            blank elements.
+	 *            blank elements. Elements will be trimmed.
 	 * @return {@link Route}
 	 */
 	public static Route from(List<String> routePath) {
