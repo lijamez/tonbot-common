@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 
-import sx.blah.discord.api.IDiscordClient;
-
 /**
  * A task that is run at a particular frequency.
  */
@@ -19,12 +17,9 @@ public abstract class PeriodicTask {
 
 	private final Timer timer;
 	private final long periodMs;
-	private final IDiscordClient discordClient;
 
-	public PeriodicTask(IDiscordClient discordClient, long periodMs) {
+	public PeriodicTask(long periodMs) {
 		this.timer = new Timer();
-
-		this.discordClient = Preconditions.checkNotNull(discordClient, "discordClient must be non-null.");
 
 		Preconditions.checkArgument(periodMs > 0, "periodMs must be greater than 0.");
 		this.periodMs = periodMs;
@@ -44,10 +39,6 @@ public abstract class PeriodicTask {
 		};
 
 		timer.scheduleAtFixedRate(task, 0, periodMs);
-	}
-
-	protected IDiscordClient getDiscordClient() {
-		return discordClient;
 	}
 
 	protected abstract void performTask();
