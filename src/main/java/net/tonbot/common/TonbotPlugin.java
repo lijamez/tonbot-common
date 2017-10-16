@@ -6,7 +6,10 @@ import com.google.common.collect.ImmutableSet;
 
 /**
  * The Tonbot plugin loader will create an instance of this class using a
- * 1-parameter constructor which accepts a {@link TonbotPluginArgs}.
+ * 1-parameter constructor which accepts a {@link TonbotPluginArgs}. Then
+ * constructor should perform as much setup as possible. If the plugin requires
+ * user input into the setup, then it should throw a
+ * {@link PluginSetupException}.
  */
 public abstract class TonbotPlugin {
 
