@@ -1,5 +1,8 @@
 package net.tonbot.common;
 
+import java.io.File;
+import java.io.InputStream;
+
 import sx.blah.discord.api.internal.json.objects.EmbedObject;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IMessage;
@@ -44,4 +47,20 @@ public interface BotUtils {
 	 *            The embed object. Non-null.
 	 */
 	void sendEmbed(IChannel channel, EmbedObject embedObj);
+
+	/**
+	 * Asynchronously sends an embed object with an image. Will retry if
+	 * RateLimitException is returned by Discord.
+	 * 
+	 * @param channel
+	 *            The channel to send the message to. Non-null.
+	 * @param embedObj
+	 *            The embed object. Non-null.
+	 * @param imageFileStream
+	 *            The image file stream. Non-null.
+	 * @param fileName
+	 *            The file name that is to be shown in Discord. Must be
+	 *            alphanumeric. Non-null.
+	 */
+	void sendEmbed(IChannel channel, EmbedObject embedObj, InputStream imageFileStream, String fileName);
 }
