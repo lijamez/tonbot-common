@@ -9,7 +9,7 @@ public interface Activity {
 	 * 
 	 * @return {@link ActivityDescriptor}. Non-null.
 	 */
-	ActivityDescriptor getDescriptor();
+	public ActivityDescriptor getDescriptor();
 
 	/**
 	 * Runs the activity.
