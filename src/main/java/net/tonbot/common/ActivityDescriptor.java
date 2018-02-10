@@ -55,7 +55,6 @@ public class ActivityDescriptor {
 			String description,
 			String usageDescription) {
 		Preconditions.checkNotNull(route, "route must be non-null.");
-		Preconditions.checkArgument(!route.isEmpty(), "route must be non-empty.");
 
 		this.route = Route.from(route);
 		this.parameters = parameters != null ? ImmutableList.copyOf(parameters) : ImmutableList.of();

@@ -26,7 +26,6 @@ public class Route {
 
 	private Route(List<String> routePath) {
 		Preconditions.checkNotNull(routePath, "routePath must be non-null.");
-		Preconditions.checkArgument(!routePath.isEmpty(), "routePath must not be empty.");
 
 		routePath.forEach(element -> Preconditions.checkArgument(
 				!StringUtils.isBlank(element), "routePath must not contain null or empty elements."));
@@ -51,11 +50,11 @@ public class Route {
 	 * </pre>
 	 * 
 	 * @param routeStr
-	 *            The route string. Must be non-null, non-blank.
+	 *            The route string. Must be non-null.
 	 * @return {@link Route}
 	 */
 	public static Route from(String routeStr) {
-		Preconditions.checkArgument(!StringUtils.isBlank(routeStr), "routeStr must be non-null and not blank.");
+		Preconditions.checkNotNull(routeStr, "routeStr must be non-null.");
 
 		List<String> routePath = Arrays.asList(StringUtils.split(routeStr, " "));
 		return new Route(routePath);
