@@ -16,6 +16,12 @@ import lombok.Data;
  * route: The canonical route for this activity. Required. Must not be blank.
  * </p>
  * <p>
+ * parameters: The parameters. If a parameter is surrounded by square brackets,
+ * it is considered optional. If it's surrounded by angle brackets, it is
+ * considered required. If it's not surrounded by either, then it will be
+ * implicitly considered required.
+ * </p>
+ * <p>
  * description: A optional <i>brief</i> description of what the command does.
  * </p>
  * <p>
