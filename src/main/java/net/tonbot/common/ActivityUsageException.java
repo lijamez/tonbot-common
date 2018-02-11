@@ -9,7 +9,7 @@ public class ActivityUsageException extends TonbotException {
 	public ActivityUsageException(String message) {
 		super(message);
 	}
-	
+
 	public ActivityUsageException(String message, Exception e) {
 		super(message, e);
 	}

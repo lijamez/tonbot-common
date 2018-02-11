@@ -1,6 +1,5 @@
 package net.tonbot.common;
 
-import java.io.File;
 import java.io.InputStream;
 
 import sx.blah.discord.api.internal.json.objects.EmbedObject;
