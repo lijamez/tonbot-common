@@ -21,5 +21,7 @@ public interface Activity {
 	 * @throws TonbotBusinessException
 	 *             If a user error occurred.
 	 */
-	void enact(MessageReceivedEvent event, String args);
+	public default void enact(MessageReceivedEvent event, String args) {
+		
+	}
 }
