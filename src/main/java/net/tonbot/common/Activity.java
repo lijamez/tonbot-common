@@ -22,6 +22,6 @@ public interface Activity {
 	 *             If a user error occurred.
 	 */
 	public default void enact(MessageReceivedEvent event, String args) {
-		
+
 	}
 }
