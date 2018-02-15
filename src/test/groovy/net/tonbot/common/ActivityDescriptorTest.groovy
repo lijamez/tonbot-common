@@ -22,24 +22,6 @@ class ActivityDescriptorTest extends Specification {
 		ad.getRoute() == Route.from("foo bar")
 	}
 
-	def "construction with invalid route"(String routeStr) {
-		when:
-		ActivityDescriptor.builder()
-				.route(routeStr)
-				.parameters(["param1", "param2"])
-				.description("Test Description")
-				.usageDescription("Test Usage Description")
-				.build()
-
-		then:
-		thrown IllegalArgumentException
-
-		where:
-		routeStr | _
-		""       | _
-		" "      | _
-	}
-
 	def "ActivityDescriptor must have a route"() {
 		when:
 		ActivityDescriptor.builder()

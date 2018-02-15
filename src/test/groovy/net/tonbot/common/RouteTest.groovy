@@ -13,10 +13,13 @@ class RouteTest extends Specification {
         
         where:
         inputRouteObj    || expectedRouteStr
+		""               || ""
+		"  "             || ""
         "foo"            || "foo"
         " foo "          || "foo"
         " foo bar "      || "foo bar"
         " foo  bar  "    || "foo bar"
+		[]               || ""
         ["foo"]          || "foo"
         ["foo", "bar"]   || "foo bar"
         ["foo ", " bar"] || "foo bar"
@@ -31,10 +34,7 @@ class RouteTest extends Specification {
         
         where:
         inputRouteObj | _
-        ""            | _
-        "   "         | _
         "\t"          | _
-        []            | _
         ["foo", ""]   | _
         [" "]         | _
     }
