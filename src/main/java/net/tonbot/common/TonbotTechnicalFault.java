@@ -7,7 +7,7 @@ package net.tonbot.common;
 @SuppressWarnings("serial")
 public class TonbotTechnicalFault extends TonbotException {
 
-	public TonbotTechnicalFault(String message, Exception e) {
+	public TonbotTechnicalFault(String message, Throwable e) {
 		super(message, e);
 	}
 

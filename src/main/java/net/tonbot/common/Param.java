@@ -37,9 +37,10 @@ public @interface Param {
 	 * @return Indicator to capture the remaining part of the input.
 	 */
 	boolean captureRemaining() default false;
-	
+
 	/**
 	 * A description about the parameter.
+	 * 
 	 * @return A description about the parameter.
 	 */
 	String description() default "";
