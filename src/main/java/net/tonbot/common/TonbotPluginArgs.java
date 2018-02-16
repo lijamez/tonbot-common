@@ -25,13 +25,8 @@ public class TonbotPluginArgs {
 	private final BotUtils botUtils;
 	private final Color color;
 
-	private TonbotPluginArgs(
-			String prefix,
-			IDiscordClient discordClient,
-			File configFile,
-			File pluginDataDir,
-			BotUtils botUtils,
-			Color color) {
+	private TonbotPluginArgs(String prefix, IDiscordClient discordClient, File configFile, File pluginDataDir,
+			BotUtils botUtils, Color color) {
 		this.prefix = Preconditions.checkNotNull(prefix, "prefix must be non-null.");
 		this.discordClient = Preconditions.checkNotNull(discordClient, "discordClient must be non-null.");
 		this.configFile = Preconditions.checkNotNull(configFile, "configFile must be non-null.");

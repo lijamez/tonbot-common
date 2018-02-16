@@ -1,6 +1,6 @@
 package net.tonbot.common;
 
-import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
+import org.apache.commons.lang3.NotImplementedException;
 
 public interface Activity {
 
@@ -12,16 +12,13 @@ public interface Activity {
 	public ActivityDescriptor getDescriptor();
 
 	/**
-	 * Runs the activity.
+	 * Gets the request type. This method must be implemented if the @Enactable
+	 * method is a generic type. Otherwise, the message event dispatcher cannot
+	 * determine the request class to map to.
 	 * 
-	 * @param event
-	 *            The {@link MessageReceivedEvent}. Non-null.
-	 * @param args
-	 *            The arguments. Non-null.
-	 * @throws TonbotBusinessException
-	 *             If a user error occurred.
+	 * @return The request type. Non-null.
 	 */
-	public default void enact(MessageReceivedEvent event, String args) {
-
+	public default Class<?> getRequestType() {
+		throw new NotImplementedException("getRequestType is not implemented.");
 	}
 }

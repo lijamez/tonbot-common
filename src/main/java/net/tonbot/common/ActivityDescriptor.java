@@ -49,11 +49,7 @@ public class ActivityDescriptor {
 	private final String usageDescription;
 
 	@Builder
-	private ActivityDescriptor(
-			String route,
-			List<String> parameters,
-			String description,
-			String usageDescription) {
+	private ActivityDescriptor(String route, List<String> parameters, String description, String usageDescription) {
 		Preconditions.checkNotNull(route, "route must be non-null.");
 
 		this.route = Route.from(route);

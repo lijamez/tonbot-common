@@ -27,12 +27,11 @@ public class Route {
 	private Route(List<String> routePath) {
 		Preconditions.checkNotNull(routePath, "routePath must be non-null.");
 
-		routePath.forEach(element -> Preconditions.checkArgument(
-				!StringUtils.isBlank(element), "routePath must not contain null or empty elements."));
+		routePath.forEach(element -> Preconditions.checkArgument(!StringUtils.isBlank(element),
+				"routePath must not contain null or empty elements."));
 
-		this.path = ImmutableList.copyOf(routePath.stream()
-				.map(element -> element.trim())
-				.collect(Collectors.toList()));
+		this.path = ImmutableList
+				.copyOf(routePath.stream().map(element -> element.trim()).collect(Collectors.toList()));
 		this.routeAsString = StringUtils.join(this.path, " ");
 	}
 
