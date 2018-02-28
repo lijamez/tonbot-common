@@ -46,6 +46,18 @@ public interface BotUtils {
 	 *            The embed object. Non-null.
 	 */
 	void sendEmbed(IChannel channel, EmbedObject embedObj);
+	
+	/**
+	 * Synchronously sends an embed object. Will retry if RateLimitException is
+	 * returned by Discord.
+	 * 
+	 * @param channel
+	 *            The channel to send the message to. Non-null.
+	 * @param embedObj
+	 *            The embed object. Non-null.
+	 * @return The sent embed message.
+	 */
+	IMessage sendEmbedSync(IChannel channel, EmbedObject embedObj);
 
 	/**
 	 * Asynchronously sends an embed object with an image. Will retry if
@@ -62,4 +74,21 @@ public interface BotUtils {
 	 *            alphanumeric. Non-null.
 	 */
 	void sendEmbed(IChannel channel, EmbedObject embedObj, InputStream imageFileStream, String fileName);
+	
+	/**
+	 * Synchronously sends an embed object with an image. Will retry if
+	 * RateLimitException is returned by Discord.
+	 * 
+	 * @param channel
+	 *            The channel to send the message to. Non-null.
+	 * @param embedObj
+	 *            The embed object. Non-null.
+	 * @param imageFileStream
+	 *            The image file stream. Non-null.
+	 * @param fileName
+	 *            The file name that is to be shown in Discord. Must be
+	 *            alphanumeric. Non-null.
+	 * @return The sent embed message.
+	 */
+	IMessage sendEmbedSync(IChannel channel, EmbedObject embedObj, InputStream imageFileStream, String fileName);
 }
