@@ -1,6 +1,7 @@
 package net.tonbot.common;
 
 import java.io.InputStream;
+import java.util.List;
 
 import sx.blah.discord.api.internal.json.objects.EmbedObject;
 import sx.blah.discord.handle.obj.IChannel;
@@ -91,4 +92,20 @@ public interface BotUtils {
 	 * @return The sent embed message.
 	 */
 	IMessage sendEmbedSync(IChannel channel, EmbedObject embedObj, InputStream imageFileStream, String fileName);
+	
+	/**
+	 * Asynchronously and quietly deletes messages. Will retry if
+	 * RateLimitException is returned by Discord.
+	 * 
+	 * @param messages The list of messages to delete. Non-null.
+	 */
+	void deleteMessagesQuietly(List<IMessage> messages);
+	
+	/**
+	 * Asynchronously and quietly deletes messages. Will retry if
+	 * RateLimitException is returned by Discord.
+	 * 
+	 * @param messages The messages to delete. Non-null.
+	 */
+	void deleteMessagesQuietly(IMessage... message);
 }
