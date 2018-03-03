@@ -17,6 +17,7 @@ public @interface Enactable {
 	
 	/**
 	 * Determines whether if the command that enacted the method should be deleted.
+	 * 
 	 * @return True if the command should be deleted. False otherwise.
 	 */
 	boolean deleteCommand() default false;
